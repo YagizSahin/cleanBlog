@@ -1,0 +1,27 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "clean Blog",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YagizSahin/cleanBlog.git"
+  },
+  "keywords": [
+    "clean",
+    "Blog"
+  ],
+  "author": "yagiz sahin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YagizSahin/cleanBlog/issues"
+  },
+  "homepage": "https://github.com/YagizSahin/cleanBlog#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "prettier": "2.8.3"
+  }
+}
