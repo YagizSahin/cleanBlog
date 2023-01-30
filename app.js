@@ -1,25 +1,39 @@
-const express = require('express');
-const ejs= require('ejs');
-const path=require('path');
+const express = require("express");
+const ejs = require("ejs");
+const path = require("path");
+const Post= require('./models/Post');
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 
 const app = express();
+//connect DB
+mongoose.connect('mongodb://127.0.0.1:27017/cleanBlog');
 //template engine
-app.set("view engine","ejs");
+app.set("view engine", "ejs");
 //middleware
-app.use(express.static('public'));
+app.use(express.static("public"));
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 //routes
-app.get('/',(req,res)=>{
-  res.render('index');
-})
-app.get('/about',(req,res)=>{
-  res.render('about');
-})
-app.get('/add_post',(req,res)=>{
-  res.render('add_post');
-})
-app.get('/post',(req,res)=>{
-  res.render('post');
-})
+app.get("/", async (req, res) => {
+  const posts=await Post.find({})
+  res.render("index",{
+    posts
+  });
+});
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+app.get("/add_post", (req, res) => {
+  res.render("add_post");
+});
+app.get("/post", (req, res) => {
+  res.render("post");
+});
+app.post('/add_post', async (req, res) => {
+  await Post.create(req.body);
+  res.redirect('/');
+});
 
 const port = 3000;
 
