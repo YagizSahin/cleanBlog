@@ -27,10 +27,21 @@
           <p><%= post.detail %></p>  
            
       </div>
-      <p><i><%= post.dateCreated %></i></p> 
+      <p><i><%= post.dateCreated %></i></p>
+      <div class="col-xl-4 col-lg-5">
+        <div class="tm-bg-gray tm-share-box">
+          <div class="text-center">
+            <a href="/post/edit/<%= post._id %>" class="btn btn-primary p-0 mb-4 tm-btn-animate tm-btn-download tm-icon-download" ><span>Update Details</span></a>	
+          </div>	
+          <div class="text-center">
+            <a href="/post/<%= post._id %>?_method=DELETE" class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download" onclick="return confirm('Do You want to delete the post?')"><span>Delete Post</span></a>	
+          </div>								
+        </div>
+      </div> 
     </div> 
+ 
   </article>
-
+  
   <hr>
 
   <!-- Footer -->
